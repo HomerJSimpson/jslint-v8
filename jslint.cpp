@@ -166,6 +166,6 @@ int main(int argc, char* argv[])
     Handle<Script> printScript = Script::Compile(String::New(v8_code));
     printScript->Run();
 
-    return 0;
+    return result->Int32Value() == 0 ? -1 : 0;
 }
 
