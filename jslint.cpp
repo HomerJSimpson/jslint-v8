@@ -153,7 +153,9 @@ int main(int argc, char* argv[])
     global->Set("source", source);
     global->Set("options", options);
     
-    Handle<Context> context = Context::New(NULL, global);
+    // Handle<Context> context = Context::New(NULL, global);
+    Isolate* isolate = Isolate::GetCurrent();
+    v8::Handle<v8::Context> context = Context::New(isolate, NULL, global);
 
     Context::Scope context_scope(context);
 
